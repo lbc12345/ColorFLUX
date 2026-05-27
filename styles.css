@@ -222,6 +222,15 @@ figcaption { padding: 12px 14px 14px; color: var(--muted); font-size: 14px; }
 }
 .bibtex-band { background: #171717; color: #fff; }
 .bibtex-band .eyebrow { color: var(--warm); }
+.bibtex-band .section-heading {
+  max-width: 980px !important;
+  margin-inline: auto;
+  text-align: center;
+}
+.bibtex-band .code-panel {
+  max-width: 980px;
+  margin-inline: auto;
+}
 .code-panel { position: relative; border-radius: 8px; overflow: hidden; background: #0f0f0f; border: 1px solid rgba(255,255,255,0.16); }
 pre { margin: 0; padding: 24px; overflow-x: auto; white-space: pre; }
 code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 14px; }
