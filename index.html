@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ColorFLUX: A Structure-Color Decoupling Framework for Old Photo Colorization, CVPR 2026." />
+  <meta property="og:title" content="ColorFLUX | CVPR 2026" />
+  <meta property="og:description" content="A structure-color decoupling framework for vivid and realistic old photo colorization." />
+  <meta property="og:image" content="assets/images/teaser.png" />
+  <title>ColorFLUX | CVPR 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ColorFLUX home">
+      <span class="brand-mark"></span>
+      <span>ColorFLUX</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#abstract">Abstract</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#bibtex">BibTeX</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-band">
+      <div class="hero-copy">
+        <h1>ColorFLUX: A Structure-Color Decoupling Framework for Old Photo Colorization</h1>
+        <p class="venue">CVPR 2026 Highlight 🎉</p>
+        <p class="subtitle">Reviving faded historical photographs with structure-preserving FLUX colorization, visual semantic prompts, and progressive color-preference optimization.</p>
+        <div class="authors" aria-label="Authors">
+          <span>Bingchen Li<sup>1,*</sup></span>
+          <span>Zhixin Wang<sup>2,*,&dagger;</sup></span>
+          <span>Fan Li<sup>2,&Dagger;</sup></span>
+          <span>Jiaqi Xu<sup>2</sup></span>
+          <span>Jiaming Guo<sup>2</sup></span>
+          <span>Renjing Pei<sup>2</sup></span>
+          <span>Xin Li<sup>1</sup></span>
+          <span>Zhibo Chen<sup>1,&dagger;</sup></span>
+        </div>
+        <p class="affiliations"><sup>1</sup> University of Science and Technology of China &middot; <sup>2</sup> Huawei Noah's Ark Lab</p>
+        <p class="author-notes">* Equal contribution &middot; &dagger; Corresponding authors &middot; &Dagger; Project lead</p>
+        <div class="actions">
+          <a class="button primary" href="https://openaccess.thecvf.com/content/CVPR2026/papers/Li_ColorFLUX_A_Structure-Color_Decoupling_Framework_for_Old_Photo_Colorization_CVPR_2026_paper.pdf" target="_blank" rel="noreferrer">Paper</a>
+          <a class="button" href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Li_ColorFLUX_A_Structure-Color_CVPR_2026_supplemental.pdf" target="_blank" rel="noreferrer">Supplementary</a>
+          <a class="button" href="#bibtex">BibTeX</a>
+          <a class="button disabled" href="#" aria-disabled="true">Code Coming Soon</a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img src="assets/images/teaser.png" alt="ColorFLUX old photo colorization examples across portraits, group photos, and landscapes." />
+        <figcaption>ColorFLUX produces vivid, realistic colorization across diverse old-photo scenarios.</figcaption>
+      </figure>
+    </section>
+
+    <section id="abstract" class="section-band abstract-band">
+      <div class="overview-challenge-grid">
+        <article>
+          <p class="eyebrow">Overview</p>
+          <h2>Old photos need more than generic colorization.</h2>
+          <p>Old photos often contain faded brightness, altered hues, scratches, blur, and other degradations that differ from modern image distributions. ColorFLUX addresses this domain gap with a FLUX-based framework that decouples structure preservation from color restoration, enabling faithful geometry and plausible, modern colors.</p>
+          <p>The framework introduces visual semantic prompts to extract fine-grained information directly from old photos, and uses progressive Direct Preference Optimization to learn coarse-to-fine color preferences for richer saturation, contrast, and brightness without sacrificing realism.</p>
+        </article>
+        <article>
+          <p class="eyebrow">Challenge</p>
+          <h2>Fading creates a difficult color prior gap.</h2>
+          <p>Existing restoration models can remove noise, blur, and scratches, but faded grayscale photos still provide weak or biased chromatic evidence. ColorFLUX restores color by separately learning structure consistency, basic color semantics, and fine color preference adjustment.</p>
+        </article>
+      </div>
+      <figure class="wide-figure fading-figure">
+        <img src="assets/images/fading_examples.jpg" alt="Examples of faded old photos and ColorFLUX restoration results." />
+      </figure>
+    </section>
+
+    <section id="method" class="section-band method-band">
+      <div class="section-heading centered">
+        <p class="eyebrow">Method</p>
+        <h2>Structure-color decoupling, then preference-aligned fine color.</h2>
+      </div>
+      <div class="method-steps">
+        <article>
+          <span>01</span>
+          <h3>Structure Consistency Training</h3>
+          <p>ControlNet injects grayscale structure into FLUX while frozen visual color prompts encourage the model to learn geometry instead of entangled color shortcuts.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Basic Color Learning</h3>
+          <p>A Redux-based visual semantic prompt extractor is fine-tuned with flow matching and feature distillation, replacing brittle text prompts with image-grounded semantics.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Progressive DPO</h3>
+          <p>Color preference pairs move from strong augmentations to subtle ones, teaching the model to recover vivid modern colors from faded old-photo inputs.</p>
+        </article>
+      </div>
+      <figure class="wide-figure framework-card">
+        <img src="assets/images/framework_thumb.png" alt="ColorFLUX framework diagram showing inference, training, and preference pair collection." />
+      </figure>
+    </section>
+
+    <section id="results" class="section-band results-band">
+      <div class="section-heading">
+        <p class="eyebrow">Results</p>
+        <h2>State-of-the-art colorization on synthetic and real old photos.</h2>
+      </div>
+      <div class="metrics-grid">
+        <div><strong>4.303</strong><span>DeQA on DIV2K-valid-augmented</span></div>
+        <div><strong>4.728</strong><span>VQ-R1 on DIV2K-valid-augmented</span></div>
+        <div><strong>83.20</strong><span>overall Qwen-score on RealOldPhotos</span></div>
+        <div><strong>92.8%</strong><span>user-study win rate over Doubao</span></div>
+      </div>
+      <div class="table-wrap" aria-label="Quantitative comparison results">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th rowspan="2" scope="col">Method</th>
+              <th colspan="3" scope="colgroup">NR-IQA</th>
+              <th colspan="6" scope="colgroup">Qwen-score</th>
+              <th rowspan="2" scope="col">Runtime</th>
+            </tr>
+            <tr>
+              <th scope="col">DeQA</th>
+              <th scope="col">Q-Insight</th>
+              <th scope="col">VQ-R1</th>
+              <th scope="col">CRI</th>
+              <th scope="col">CRA</th>
+              <th scope="col">CCS</th>
+              <th scope="col">SCS</th>
+              <th scope="col">AES</th>
+              <th scope="col">OA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-group"><th colspan="11" scope="rowgroup">DIV2K-valid-synthesized</th></tr>
+            <tr><th scope="row">DeOldify</th><td>4.080</td><td>3.978</td><td>4.625</td><td>69.35</td><td><strong>80.95</strong></td><td>83.80</td><td><strong>94.78</strong></td><td>80.70</td><td>81.73</td><td>2.23s</td></tr>
+            <tr><th scope="row">DDColor</th><td>4.162</td><td>3.992</td><td>4.574</td><td>79.80</td><td>78.55</td><td>77.60</td><td>93.22</td><td>81.13</td><td>81.80</td><td>0.19s</td></tr>
+            <tr><th scope="row">CtrlColor</th><td>4.144</td><td><strong>4.013</strong></td><td>4.654</td><td>75.40</td><td>80.25</td><td><strong>84.04</strong></td><td>94.53</td><td>81.85</td><td>83.28</td><td>8.05s</td></tr>
+            <tr><th scope="row">FLUX-Kontext</th><td>4.209</td><td>4.002</td><td>4.661</td><td>77.75</td><td>80.00</td><td>83.61</td><td>93.91</td><td>82.22</td><td>83.48</td><td>28.14s</td></tr>
+            <tr><th scope="row">ColorFLUX (Ours)</th><td><strong>4.293</strong></td><td>4.008</td><td><strong>4.739</strong></td><td><strong>80.80</strong></td><td>79.70</td><td>82.23</td><td>94.05</td><td><strong>83.12</strong></td><td><strong>83.73</strong></td><td>7.45s</td></tr>
+
+            <tr class="table-group"><th colspan="11" scope="rowgroup">DIV2K-valid-augmented</th></tr>
+            <tr><th scope="row">DeOldify</th><td>3.841</td><td>3.798</td><td>4.349</td><td>64.70</td><td>77.75</td><td>81.37</td><td>94.29</td><td>77.63</td><td>79.11</td><td>2.23s</td></tr>
+            <tr><th scope="row">DDColor</th><td>3.941</td><td>3.877</td><td>4.410</td><td>77.85</td><td>76.70</td><td>78.66</td><td>93.43</td><td>80.43</td><td>81.54</td><td>0.19s</td></tr>
+            <tr><th scope="row">CtrlColor</th><td>3.917</td><td>3.857</td><td>4.432</td><td>72.35</td><td>78.40</td><td>82.99</td><td>94.03</td><td>80.25</td><td>81.71</td><td>8.05s</td></tr>
+            <tr><th scope="row">FLUX-Kontext</th><td>4.175</td><td><strong>3.981</strong></td><td>4.617</td><td>77.25</td><td><strong>79.90</strong></td><td><strong>84.57</strong></td><td>94.63</td><td>81.83</td><td>82.55</td><td>28.14s</td></tr>
+            <tr><th scope="row">ColorFLUX (Ours)</th><td><strong>4.303</strong></td><td>3.978</td><td><strong>4.728</strong></td><td><strong>80.15</strong></td><td>79.70</td><td>82.66</td><td><strong>94.83</strong></td><td><strong>82.80</strong></td><td><strong>83.53</strong></td><td>7.45s</td></tr>
+
+            <tr class="table-group"><th colspan="11" scope="rowgroup">RealOldPhotos</th></tr>
+            <tr><th scope="row">DeOldify</th><td>4.056</td><td>3.852</td><td>4.419</td><td>70.90</td><td>80.50</td><td>82.66</td><td>94.76</td><td>79.02</td><td>80.86</td><td>2.23s</td></tr>
+            <tr><th scope="row">DDColor</th><td>4.090</td><td><strong>3.935</strong></td><td>4.500</td><td>76.20</td><td>81.10</td><td>82.36</td><td>94.60</td><td>82.42</td><td>82.70</td><td>0.19s</td></tr>
+            <tr><th scope="row">CtrlColor</th><td>4.050</td><td>3.931</td><td>4.486</td><td>76.40</td><td>80.50</td><td>83.24</td><td>94.50</td><td>81.64</td><td>82.68</td><td>8.05s</td></tr>
+            <tr><th scope="row">FLUX-Kontext</th><td>4.110</td><td>3.843</td><td>4.452</td><td>66.00</td><td>76.90</td><td>79.74</td><td><strong>94.88</strong></td><td>76.38</td><td>77.70</td><td>28.14s</td></tr>
+            <tr><th scope="row">Doubao</th><td>3.741</td><td>3.563</td><td>4.097</td><td><strong>83.10</strong></td><td>64.90</td><td>75.10</td><td>89.00</td><td>74.40</td><td>75.24</td><td>~29s</td></tr>
+            <tr><th scope="row">ColorFLUX (Ours)</th><td><strong>4.199</strong></td><td>3.869</td><td><strong>4.593</strong></td><td>80.50</td><td><strong>81.30</strong></td><td><strong>83.36</strong></td><td>94.46</td><td><strong>83.22</strong></td><td><strong>83.20</strong></td><td>7.45s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="wide-figure">
+        <img src="assets/images/real_old_photos_comparison.jpg" alt="Qualitative comparison between ColorFLUX and other methods on RealOldPhotos." />
+        <figcaption>ColorFLUX better preserves semantic color consistency in portraits, crowds, and landscapes.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section-band more-results-band">
+      <div class="more-results-grid">
+        <figure class="paper-figure">
+          <img src="assets/images/suppnew1.jpg" alt="Colorization comparison across landmark and street scenes." />
+        </figure>
+        <figure class="paper-figure">
+          <img src="assets/images/suppnew2.jpg" alt="Input and colorized output examples for historical photos." />
+        </figure>
+        <figure class="paper-figure">
+          <img src="assets/images/suppnew3.jpg" alt="Colorization comparison across city and library scenes." />
+        </figure>
+        <figure class="paper-figure">
+          <img src="assets/images/suppnew4.jpg" alt="Colorization comparison including commercial and baseline methods." />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section-band">
+      <div class="section-heading centered">
+        <p class="eyebrow">Analysis</p>
+        <h2>Each component contributes to faithful and vivid restoration.</h2>
+      </div>
+      <div class="analysis-grid">
+        <figure class="paper-figure">
+          <img src="assets/images/decoupling_ablation.jpg" alt="Ablation visualization of structure consistency training, basic color learning, and fine-color adjustment." />
+          <figcaption>Decoupling structure and color avoids structural drift and dull color entanglement.</figcaption>
+        </figure>
+        <figure class="paper-figure">
+          <img src="assets/images/fine_color_strategy.jpg" alt="Qualitative comparison of fine-color post-training strategies." />
+          <figcaption>Progressive DPO yields vivid and natural fine-grained colors.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="bibtex" class="section-band bibtex-band">
+      <div class="section-heading">
+        <p class="eyebrow">Citation</p>
+        <h2>BibTeX</h2>
+      </div>
+      <div class="code-panel">
+        <button class="copy-button" type="button" data-copy="bibtex-code">Copy</button>
+        <pre><code id="bibtex-code">@inproceedings{li2026colorflux,
+  title     = {ColorFLUX: A Structure-Color Decoupling Framework for Old Photo Colorization},
+  author    = {Li, Bingchen and Wang, Zhixin and Li, Fan and Xu, Jiaqi and Guo, Jiaming and Pei, Renjing and Li, Xin and Chen, Zhibo},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year      = {2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
