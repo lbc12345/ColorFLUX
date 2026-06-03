@@ -51,7 +51,7 @@ ColorFLUX is a structure-color decoupling framework for old photo colorization. 
 The framework introduces visual semantic prompts for extracting fine-grained information directly from old photos, and progressive Direct Preference Optimization for learning coarse-to-fine color preferences. This helps produce vivid, realistic colorization while preserving faithful geometry.
 
 <p align="center">
-  <img src="assets/images/teaser.png" width="95%">
+  <img src="examples/teaser.png" width="95%">
 </p>
 
 ## Method
@@ -63,7 +63,7 @@ ColorFLUX consists of three main stages:
 - **Progressive DPO**: aligns color preference from strong to subtle augmentations for vivid and natural fine-color restoration.
 
 <p align="center">
-  <img src="assets/images/framework_thumb.png" width="95%">
+  <img src="examples/framework_thumb.png" width="95%">
 </p>
 
 ## Results
@@ -71,7 +71,7 @@ ColorFLUX consists of three main stages:
 ColorFLUX achieves state-of-the-art performance on synthetic and real old photo colorization benchmarks, including DIV2K-valid-synthesized, DIV2K-valid-augmented, and RealOldPhotos.
 
 <p align="center">
-  <img src="assets/images/real_old_photos_comparison.jpg" width="95%">
+  <img src="examples/real_old_photos_comparison.jpg" width="95%">
 </p>
 
 ## To Do
