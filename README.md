@@ -30,7 +30,9 @@
 
 <p align="center">
   <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Li_ColorFLUX_A_Structure-Color_Decoupling_Framework_for_Old_Photo_Colorization_CVPR_2026_paper.pdf">Paper</a> |
-  <a href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Li_ColorFLUX_A_Structure-Color_CVPR_2026_supplemental.pdf">Supplementary</a>
+  <a href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Li_ColorFLUX_A_Structure-Color_CVPR_2026_supplemental.pdf">Supplementary</a> |
+  <a href="https://huggingface.co/LuckyCookie114/colorflux">Weights</a> |
+  <a href="https://github.com/lbc12345/ColorFLUX">Unofficial Code</a>
 </p>
 
 > **Unofficial implementation of ColorFLUX.**  
@@ -38,6 +40,7 @@
 
 ## News
 
+- **2026.06**: Pretrained weights are available on [Hugging Face](https://huggingface.co/LuckyCookie114/colorflux).
 - **2026.06**: We provide an unofficial implementation repository for ColorFLUX.
 - **2026.05**: ColorFLUX is accepted by CVPR 2026 as a Highlight paper.
 
@@ -71,16 +74,49 @@ ColorFLUX achieves state-of-the-art performance on synthetic and real old photo 
   <img src="examples/real_old_photos_comparison.jpg" width="95%">
 </p>
 
+## Model Weights
+
+The pretrained weights for this unofficial implementation are available at:
+
+**Hugging Face**: [LuckyCookie114/colorflux](https://huggingface.co/LuckyCookie114/colorflux)
+
+You can download the weights with:
+
+```bash
+huggingface-cli download LuckyCookie114/colorflux --local-dir ./checkpoints/colorflux
+```
+
+Or with Python:
+
+```python
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id="LuckyCookie114/colorflux",
+    local_dir="./checkpoints/colorflux",
+)
+```
+
+The checkpoint package contains:
+
+- `flux_controlnet/diffusion_pytorch_model.safetensors`
+- `ReduxImageEncoder/diffusion_pytorch_model.safetensors`
+- `SiglipVisionModel/model.safetensors`
+- `pytorch_lora_weights.safetensors`
+- model configuration files
+
+> The weights are released for academic research only. Commercial use is strictly prohibited.
+
 ## To Do
 
 - [ ] Release inference code.
-- [ ] Release pretrained checkpoints.
+- [x] Release pretrained checkpoints.
 - [ ] Release installation and environment instructions.
 - [ ] Release example scripts for old photo colorization.
 
 ## Usage
 
-The code and model checkpoints are being organized. Please stay tuned for updates in this unofficial repository.
+The inference code is being organized. Please download the model weights from Hugging Face and stay tuned for usage scripts in this unofficial repository.
 
 ## Citation
 
