@@ -1,10 +1,5 @@
-# ColorFLUX
-
-> **Unofficial implementation of ColorFLUX.**  
-> This repository is not the official release from the paper authors. It is provided for academic research and reproduction only. **Commercial use is strictly prohibited.**
-
 <p align="center">
-  <h1 align="center">ColorFLUX: A Structure-Color Decoupling Framework for Old Photo Colorization</h1>
+  <h1 align="center">[CVPR2026] ColorFLUX: A Structure-Color Decoupling Framework for Old Photo Colorization</h1>
 </p>
 
 <p align="center">
@@ -35,9 +30,11 @@
 
 <p align="center">
   <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Li_ColorFLUX_A_Structure-Color_Decoupling_Framework_for_Old_Photo_Colorization_CVPR_2026_paper.pdf">Paper</a> |
-  <a href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Li_ColorFLUX_A_Structure-Color_CVPR_2026_supplemental.pdf">Supplementary</a> |
-  <a href="https://github.com/lbc12345/ColorFLUX">Unofficial Code</a>
+  <a href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Li_ColorFLUX_A_Structure-Color_CVPR_2026_supplemental.pdf">Supplementary</a>
 </p>
+
+> **Unofficial implementation of ColorFLUX.**  
+> This repository is not the official release from the paper authors. It is provided for academic research and reproduction only. **Commercial use is strictly prohibited.**
 
 ## News
 
